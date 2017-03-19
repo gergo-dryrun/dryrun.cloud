@@ -1,5 +1,5 @@
 ---
-title: "Quickstart Cloudtrail to ElasticSearch 5.1"
+title: "Quickstart CloudTrail to ElasticSearch 5.1"
 date: 2017-03-18
 tags: [cloudformation, elasticsearch, lambda, cloudtrail, cloudwatch, curator, kibana, dashboard]
 categories: [cloudformation]
@@ -29,11 +29,13 @@ TODO: make stack public / launchable
 
 Depending on domain configuration it can take up to 30 minutes for the stack to finish.
 
-![Cloudformation output](https://s3-eu-west-1.amazonaws.com/quickstart-cloudtrail-to-elasticsearch/cloudformation-stack-output.png)
+
+{% lightbox images/cloudformation-stack-output.png  --data="appfoundry_image_set" --title="CloudFormation Output" --alt="CloudFormation Output" --img-style="max-width:100%;" --class="yourclass" %}
+
 
 Browsing to Kibana 5.1 and loading in the CloudTrail Dashboard you get:
 
-![CloudTrail Dashboard](https://s3-eu-west-1.amazonaws.com/quickstart-cloudtrail-to-elasticsearch/cloudtrail-dashboard.png)
+{% lightbox images/cloudtrail-dashboard.png  --data="appfoundry_image_set" --title="CloudTrail Dashboard" --alt="CloudTrail Dashboard" --img-style="max-width:100%;" --class="yourclass" %}
 
 
 ## Disclaimer
