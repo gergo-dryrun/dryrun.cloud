@@ -1,7 +1,7 @@
 # Site settings
 title: --dry-run
 description: 'All things AWSome'
-url: 'https://dryrun.cloud'
+url: 'http://dryrun.cloud'
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
@@ -23,7 +23,7 @@ defaults:
 # Build settings
 destination: _site
 paginate: 10
-permalink: /:year/:title/
+permalink: :year/:title/
 markdown: kramdown
 highlighter: rouge
 
