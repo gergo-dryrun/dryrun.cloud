@@ -15,16 +15,15 @@ dryrun.cloud is a static site generated using [Jekyll](https://jekyllrb.com/) an
 This first part of the article will cover creating the infrastructure backbone, and Part 2 will be about CI/CD.
 
 
-The [github repo](https://github.com/gergo-dryrun/staticsite-infra) includes a master CloudFormation template that bundles up independent stacks for:
+The [github repo](https://github.com/gergo-dryrun/staticsite-infra) includes a master CloudFormation template that bundles up independent stacks:
 
- * Creating CloudFront distribution with s3 bucket as origin
- * Creates CloudFront Origin Access Identity to protect s3 bucket
- * [Optional] Creates WAF with a suite of security automations
- * [Optional] Creates IP restricted test environment
+ * CloudFront distribution with s3 bucket as origin
+ * [Optional] WebACL with a suite of security automations
+ * [Optional] IP restricted test environment
 
-Additionaly includes separate template for:
+Additionally includes separate template for:
 
- * Creating an ACM SSL certificate
+ * ACM SSL certificate
 
 
 #### Prerequisites
