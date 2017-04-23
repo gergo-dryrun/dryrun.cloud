@@ -19,7 +19,7 @@ The [github repo](https://github.com/gergo-dryrun/staticsite-infra) includes a m
 
  * CloudFront distribution with s3 bucket as origin
  * [Optional] WebACL with a suite of security automations
- * [Optional] IP restricted test environment
+ * [Optional] IP restricted staging environment
 
 Additionally includes separate template for:
 
@@ -62,10 +62,10 @@ To read more about the WAF Security Automations I recommend giving [aws security
 
 Once you launch the stack it can take up to 40 minutes for all the resources to create.
 
-Depending whether you selected to also create a testing environment you will end up with 2 buckets:
+Depending whether you selected to also create a staging environment you will end up with 2 buckets:
 
 * live.{DomainName}
-* test.{DomainName}
+* staging.{DomainName}
 
 Both of them have been configured with default IndexDocument: `index.html`
 
@@ -75,18 +75,19 @@ Then you can just use the Makefile to deploy/update the stack:
 
 ```bash
 # To create stack
-make STACK_NAME=acm-certificate-example.com STACK=acm-certificate REGION=us-west-1 create
+make STACK_NAME=staticsite-demo STACK=master PARAM_PATH=`pwd`/parameters REGION=us-west-1 create
 # To poll for events
-make STACK_NAME=acm-certificate-example.com STACK=acm-certificate REGION=us-east-1 watch
+make STACK_NAME=staticsite-demo STACK=master REGION=us-east-1 watch
 # To see the stack outputs
-make STACK_NAME=acm-certificate-example.com STACK=acm-certificate REGION=us-east-1 output
+make STACK_NAME=staticsite-demo STACK=master REGION=us-east-1 output
 # To update the stack
-make STACK_NAME=acm-certificate-example.com STACK=acm-certificate REGION=us-east-1 update
+make STACK_NAME=staticsite-demo STACK=master PARAM_PATH=`pwd`/parameters REGION=us-east-1 update
 # To delete the stack
-make STACK_NAME=acm-certificate-example.com STACK=acm-certificate REGION=us-east-1 delete
+make STACK_NAME=staticsite-demo STACK=master PARAM_PATH=`pwd`/parameters REGION=us-east-1 delete
 ```
 
-This works with any template that has an associated parameter file.
+This works with any template that has an associated parameter file. Alternatively, you can keep the parameters in a completely separate repository and just point PARAM_PATH to the right place.
+
 
 #### Tips & gotchas
 If you visit the live site before the DNS has fully propagated within AWS CloudFront, you might get a 307 Temporary Redirect, so I recommend waiting 20-30 minutes before visiting the site after the stack has been deployed.
