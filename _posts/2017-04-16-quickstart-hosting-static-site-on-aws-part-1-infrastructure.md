@@ -8,9 +8,11 @@ description: "Cloudformation stack suite to deploy static site behind cloudfront
 
 I don't know about you, but when I get bored I like to read [AWS whitepapers](https://aws.amazon.com/whitepapers/), it's a very relaxing Sunday teatime activity.
 
-One of the more recently read ones was the whitepaper on [hosting static websites on aws](https://d0.awsstatic.com/whitepapers/Building%20Static%20Websites%20on%20AWS.pdf) and it was the inspiration for this article.
+One of the more recently read ones was the whitepaper on [hosting static websites on aws](https://d0.awsstatic.com/whitepapers/Building%20Static%20Websites%20on%20AWS.pdf), it covers pretty in-depth the best practices to hosting static sites, including CI/CD processes. Highly recommend it to anyone with a couple of minutes to spare.
 
-dryrun.cloud is a static site generated using [Jekyll](https://jekyllrb.com/) and hosted on AWS. Up until now the setup was fairly basic and manual using `jekyll build` and `aws s3 sync`, but that's not the way things should be in 2017. Cloudformation to the rescue!
+dryrun.cloud is a static site generated using [Jekyll](https://jekyllrb.com/) and hosted on AWS. Up until now the setup was fairly rudimentary, manually created Route53 DNS records, s3 bucket, and CloudFront distribution. The deployment process was also manual using `jekyll build` and `aws s3 sync`.
+
+I can't really be writing about automation if my own infrastructure is not automated end to end. As I embark on this journey, I figured I'd share my experiences and create a possible quickstart guide. Buckle up and here we go!
 
 This first part of the article will cover creating the infrastructure backbone, and Part 2 will be about CI/CD.
 
@@ -83,7 +85,7 @@ make STACK_NAME=staticsite-demo STACK=master REGION=us-east-1 output
 # To update the stack
 make STACK_NAME=staticsite-demo STACK=master PARAM_PATH=`pwd`/parameters REGION=us-east-1 update
 # To delete the stack
-make STACK_NAME=staticsite-demo STACK=master PARAM_PATH=`pwd`/parameters REGION=us-east-1 delete
+make STACK_NAME=staticsite-demo REGION=us-east-1 delete
 ```
 
 This works with any template that has an associated parameter file. Alternatively, you can keep the parameters in a completely separate repository and just point PARAM_PATH to the right place.
