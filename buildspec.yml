@@ -4,8 +4,9 @@ containers:
         phases:
             during_build:
                 commands:
-                    - gem install jekyll
-                    - jekyll build
+                    - gem install bundler
+                    - bundle install
+                    - bundle exec jekyll build
         artifacts:
             files:
                 - _site/**/*
