@@ -25,7 +25,7 @@ You can get started by deploying the stack.
 {% lightbox images/staticsite-cd-master-parameters.png  --data="appfoundry_image_set" --title="CodePipeline parameters" --alt="Certificate parameters" --img-style="max-width:100%;" --class="yourclass" %}
 
 
-If you are not a big fan of launching stacks from the console, you can clone this repo and the `Makefile` should provide you with what you need. I recommend keeping the parameters somewhere secure due to the sensitive nature of the github token.
+If you are not a big fan of launching stacks from the console, you can clone [the repo](https://github.com/gergo-dryrun/staticsite-cd) and the `Makefile` should provide you with what you need. I recommend keeping the parameters somewhere secure due to the sensitive nature of the github token.
 
 ```bash
 # To create stack
@@ -103,3 +103,5 @@ PS: If you can see this post, it means that the pipeline works!
  [2] <http://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html>
 
  [3] <http://docs.aws.amazon.com/codepipeline/latest/userguide/approvals-action-add.html>
+
+ [4] <https://github.com/gergo-dryrun/staticsite-cd>
