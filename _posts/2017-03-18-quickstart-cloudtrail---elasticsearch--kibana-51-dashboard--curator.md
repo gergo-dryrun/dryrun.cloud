@@ -46,6 +46,6 @@ You can find the project on [github](https://github.com/gergo-dryrun/quickstart-
 
 ## Disclaimer
 
- Currently the whole setup works on the premise that the index pattern for cloudtrai logs will be cwl-
+ Currently the whole setup works on the premise that the index pattern for cloudtrail logs will be cwl-
 
 ---
